@@ -14,11 +14,11 @@ them, skip this:
 
 1. Install virtualenv:
 
-   $ sudo easy_install virtualenv 
+    sudo easy_install virtualenv 
 
 2. Install pip:
 
-   $ sudo easy_install pip
+    sudo easy_install pip
 
 ### Install Project Pre-requisites
 
@@ -30,15 +30,15 @@ project to.
 
 2. Create your virtualenv environment:
 
-    $ virtualenv --no-site-packages .env 
+    virtualenv --no-site-packages .env 
 
 3. Activate the project's virtualenv:
 
-    $ source .env/bin/activate
+    source .env/bin/activate
 
 4. Install the project's python libraries:
 
-    $ pip install -r pip-requires.txt
+    pip install -r pip-requires.txt
 
 5. Now you can run the project!!!!
 
