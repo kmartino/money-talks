@@ -12,11 +12,11 @@ This is a project that requires Python 2.6 or higher. In addition, the
 following pre-requisites need to be installed. If you already have
 them, skip this:
 
-1. Install virtualenv:
+Install virtualenv:
 
     sudo easy_install virtualenv 
 
-2. Install pip:
+Install pip:
 
     sudo easy_install pip
 
@@ -40,38 +40,38 @@ Install the project's python libraries:
 
     pip install -r pip-requires.txt
 
-5. Now you can run the project!!!!
+Now you can run the project!!!!
 
 Running the script
 ------------------
 
-### Running Unit Tests
+Running Unit Tests:
 
-$ python -m unittest moneytalks_test
+    python -m unittest moneytalks_test
 
 ### Running the script
 
-1. Navigate to the directory you extracted, or checked out the project
-   to, if you haven't already:
+Navigate to the directory you extracted, or checked out the project
+to, if you haven't already:
 
-2. Activate the project's virtualenv if you haven't already:
+Activate the project's virtualenv if you haven't already:
 
-   $ source .env/bin/activate
+    source .env/bin/activate
 
-3. To downloaded csv files:
+To downloaded csv files:
 
-   $ python moneytalks.py e DEBUG
+    python moneytalks.py e DEBUG
    
-4. To extract information from them and create the local db file:
+To extract information from them and create the local db file:
 
-   $ python moneytalks.py t DEBUG
+    python moneytalks.py t DEBUG
 
-5. To load the db file to Google's Fusion tables (this will prompt you
+To load the db file to Google's Fusion tables (this will prompt you
 for your username and password. Beware - if you have a table there
 with the names indicated in moneytalks_config.py - THEY WILL BE
 OVERWRITTEN!):
 
-   $ python moneytalks l DEBUG
+    python moneytalks l DEBUG
 
 Rationale of the script
 -----------------------
