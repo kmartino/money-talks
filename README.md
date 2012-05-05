@@ -8,7 +8,7 @@ Installation and Setup
 
 ### Install System Pre-requisites
 
-This is a project that requires Python 2.6 or higher. In addition, the
+This project requires Python 2.6 or higher. In addition, the
 following pre-requisites need to be installed. If you already have
 them, skip this:
 
@@ -22,7 +22,7 @@ Install pip:
 
 ### Install Project Pre-requisites
 
-When running this project for the first time, execute the following
+When running the project for the first time, execute the following
 steps. 
 
 Navigate to the directory you extracted or checked out the
@@ -45,38 +45,41 @@ Now you can run the project!!!!
 Running the script
 ------------------
 
-Running Unit Tests:
+### Runing unit tests
+
+Navigate to the directory you extractred, or checked out the project
+to.
+
+Activate the project's virtualenv if you haven't already:
+
+    source .env/bin/activate
+
+Run the unit test script:
 
     python -m unittest moneytalks_test
 
 ### Running the script
 
 Navigate to the directory you extracted, or checked out the project
-to, if you haven't already:
+to.
 
 Activate the project's virtualenv if you haven't already:
 
     source .env/bin/activate
 
-To downloaded csv files:
+To download csv files from the source system (overwrites files locally):
 
     python moneytalks.py e DEBUG
    
-To extract information from them and create the local db file:
+To extract information from them and create the local db file (overwrites the db file locally):
 
     python moneytalks.py t DEBUG
 
-To load the db file to Google's Fusion tables (this will prompt you
-for your username and password. Beware - if you have a table there
-with the names indicated in moneytalks_config.py - THEY WILL BE
-OVERWRITTEN!):
+To load the db file to your Google Fusion tables (this will prompt for the credentials you associate with your Google Fusion account): 
 
     python moneytalks l DEBUG
 
-Rationale of the script
------------------------
-
-TODO
+The above will create the target tables indicated in moneytalks_config.py, with the columns indicated. If those tables exist, and rows with matching IDs exist, the script will update those rows. So running this repeatitively will not result in ever more rows being appended to your target tables.
 
 Sources 
 -------
