@@ -1,3 +1,8 @@
+"""load.py
+
+Loads a db file and uploads its contents to Google Fusion Tables.
+
+"""
 import logging
 import os
 import json
@@ -5,6 +10,16 @@ import json
 import fusion 
 
 def load(**kwargs):
+    """Loads tables and rows from the db file and uploads
+    them to Google Fusion Tables. 
+
+    Will create tables indicated int the csv_schema argument
+    if they do not exist as Google Fusion Tables.
+
+    Will update rows, instead of inserting them, 
+    if the row currently exists.
+
+    """
     db = kwargs['db']
     csv_schema = kwargs['csv_schema']
     username = kwargs['username']

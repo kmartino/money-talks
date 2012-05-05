@@ -1,10 +1,11 @@
 """ transform.py
+
 Iterates over a directory of csv files and 
 transforms them into a dictionary that is 
 suitable for creating SQL statements from.
 
 The dictionary is stored in its own location
-for reading repeatitively.
+for re-use.
 
 """
 from collections import OrderedDict
@@ -21,9 +22,9 @@ def transform(**kwargs):
     easy to map to SQL statemtents that can upload content to Google's
     Fusion Tables.
     
-    Arguments: 
-    extract_storage = the local directory the csv text files are in 
-    transform_storage = the local file to save the generated dictionary to
+    Keyword Arguments: 
+    extract_storage -- the local directory the csv text files are in 
+    db -- the local file to save the generated dictionary to
     """
     extract_storage = kwargs['extract_storage']
     db = kwargs['db']
@@ -59,6 +60,10 @@ def transform(**kwargs):
     return data
 
 def save_db(data, db):
+    """Saves the contents of the dictionary in the data argument
+    to the db file indicated in the db argument.
+
+    """
     if not os.path.exists(os.path.dirname(db)):
         os.makedirs(os.path.dirname(db))
     output = json.dumps(data)

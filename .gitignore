@@ -1,0 +1,14 @@
+*.pyc
+*.sqlite3
+*.class
+log/
+tmp/
+*~
+*.lock
+*.DS_STORE
+*.out
+data/
+db/
+datadocs/
+local_config.py
+.env
