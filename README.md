@@ -25,18 +25,18 @@ them, skip this:
 When running this project for the first time, execute the following
 steps. 
 
-1. Navigate to the directory you extracted or checked out the
+Navigate to the directory you extracted or checked out the
 project to.
 
-2. Create your virtualenv environment:
+Create your virtualenv environment:
 
     virtualenv --no-site-packages .env 
 
-3. Activate the project's virtualenv:
+Activate the project's virtualenv:
 
     source .env/bin/activate
 
-4. Install the project's python libraries:
+Install the project's python libraries:
 
     pip install -r pip-requires.txt
 
