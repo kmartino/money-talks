@@ -1,13 +1,16 @@
-Summary
-=======
+money-talks
+===========
+
+Summary: TODO
 
 Installation and Setup
 ----------------------
 
 ### Install System Pre-requisites
 
-If you virtualenv and pip installed, these steps can be skipped. If
-you don't know for sure, run them, it won't hurt.
+This is a project that requires Python 2.6 or higher. In addition, the
+following pre-requisites need to be installed. If you already have
+them, skip this:
 
 1. Install virtualenv:
 
@@ -27,15 +30,15 @@ project to.
 
 2. Create your virtualenv environment:
 
-   $ virtualenv --no-site-packages .env 
+    $ virtualenv --no-site-packages .env 
 
 3. Activate the project's virtualenv:
 
-   $ source .env/bin/activate
+    $ source .env/bin/activate
 
 4. Install the project's python libraries:
 
-   $ pip install -r pip-requires.txt
+    $ pip install -r pip-requires.txt
 
 5. Now you can run the project!!!!
 
@@ -53,34 +56,46 @@ $ python -m unittest moneytalks_test
 
 2. Activate the project's virtualenv if you haven't already:
 
-$ source .env/bin/activate
+   $ source .env/bin/activate
 
-3. Create the etl.oauth.cfg file if you haven't already. This file is
-   used to authenticate you with the project's Google Fusion table
-   api.
+3. To downloaded csv files:
 
-4. To load data downloaded and parsed:
+   $ python moneytalks.py e DEBUG
+   
+4. To extract information from them and create the local db file:
 
-$ python etl.py 'ftp://ftp.phila-records.com/2012 Cycle 1/' './data' l DEBUG
+   $ python moneytalks.py t DEBUG
 
-5. To refresh authentication information:
+5. To load the db file to Google's Fusion tables (this will prompt you
+for your username and password. Beware - if you have a table there
+with the names indicated in moneytalks_config.py - THEY WILL BE
+OVERWRITTEN!):
 
-$ python etl.py 'ftp://ftp.phila-records.com/2012 Cycle 1/' './data' a DEBUG
+   $ python moneytalks l DEBUG
 
-* Rationale of the script
+Rationale of the script
+-----------------------
 
-* Sources 
+TODO
 
-- [[ftp://ftp.phila-records.com/][Philadelphia Election Data Source]]
-- [[https://developers.google.com/fusiontables/][Google: Google Fusion Tables API]]
-- [[https://developers.google.com/accounts/docs/AuthForInstalledApps][Google: ClientLogin for Installed Applications]]
-- [[https://developers.google.com/maps/articles/election-ratings][Google: Election Ratings and Spatial Data with Fusion Tables]]
-- [[http://www.doughellmann.com/PyMOTW/csv/][Python Module of the Week: csv]]
-- [[http://ftputil.sschwarzer.net/trac/wiki/Documentation#ftphost-walk][ftputil documentation]]
-- OAuth
-  - [[https://developers.google.com/fusiontables/docs/articles/oauthfusiontables][Google: Using OAuth 2.0 for Authorization to Fusion Tables in Web Applications]]
-  - [[https://developers.google.com/accounts/docs/OAuth2InstalledApp][Google: Using OAuth 2.0 for Installed Applications]]
-  - [[https://gmaps-samples.googlecode.com/svn/trunk/fusiontables/oauth_tokens.py][Google: oauth_token generator sample script]]
-- [[http://fuzzytolerance.info/updating-google-fusion-table-from-a-csv-file-using-python/][Fuzzy Tolerance: Updating Google Fusion Tables from a CSV File Using Python]]
-- [[http://johnkeefe.net/making-ap-election-data-easy-with-fusion-tabl][johnkeefe.net: Making AP Election Data Easy]]
-- [[http://stackoverflow.com/questions/101742/how-do-you-access-an-authenticated-google-app-engine-service-from-a-non-web-py][Stack Overflow: How do you access an authenticated Google App Engine service from a (non-web) python client?]]
+Sources 
+-------
+
+- Philadelphia Election Data Source
+  ftp://ftp.phila-records.com/
+- OpenDataPhilly
+  http://opendataphilly.org/
+- Google: Google Fusion Tables API
+  https://developers.google.com/fusiontables/
+- Google: ClientLogin for Installed Applications
+  https://developers.google.com/accounts/docs/AuthForInstalledApps
+- Google: Election Ratings and Spatial Data with Fusion Tables
+  https://developers.google.com/maps/articles/election-ratings
+- Fuzzy Tolerance: Updating Google Fusion Tables from a CSV File Using Python
+  http://fuzzytolerance.info/updating-google-fusion-table-from-a-csv-file-using-python/ 
+- Python Module of the Week: csv
+  http://www.doughellmann.com/PyMOTW/csv/
+- ftputil documentation
+  http://ftputil.sschwarzer.net/trac/wiki/Documentation#ftphost-walk
+- johnkeefe.net: Making AP Election Data Easy
+  http://johnkeefe.net/making-ap-election-data-easy-with-fusion-tabl
