@@ -44,7 +44,7 @@ if __name__ == "__main__":
     
     if run_cmds.find('e') > -1:
         # Extract files from ftp location and download them
-        downloaded_count = extract.extract(source=source, 
+        downloaded_count = extract.extract(source = source, 
                                            extract_storage = extract_storage)
         print 'Downloaded %s files ' % downloaded_count
 

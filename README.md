@@ -19,8 +19,7 @@ Coming soon:
 
 1. The front end Web-based interface to the data at Google Fusion.
 
-2. Fleshing out a strong set unit tests that can mock the remote
-sources of data.
+2. Fleshing out a strong set unit tests - big challenge is that the current implementation of the script is mostly a wrapper of pre-existing functionality - which is as it should be.
 
 3. Improved script interface and error handling.
 

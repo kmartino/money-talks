@@ -25,6 +25,7 @@ def transform(**kwargs):
     Keyword Arguments: 
     extract_storage -- the local directory the csv text files are in 
     db -- the local file to save the generated dictionary to
+
     """
     extract_storage = kwargs['extract_storage']
     db = kwargs['db']
