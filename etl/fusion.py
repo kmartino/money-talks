@@ -9,13 +9,13 @@ def create_table(table_name, table_schema, auth_token):
     table_id = get_table_id(table_name, auth_token)
     if not table_id:
         logging.info('Creating %s' % table_name)
-        sql = generate_create_table_sql(table_name, table_schema)
+        sql = create_table_sql(table_name, table_schema)
         output = send_query(sql, auth_token)
-        for row in output:
-            if output.line_num == 2:
-                table_id = row[0]
-                logging.info('Created table id %s for %s' % 
-                             (table_id, table_name))
+        if len(output) > 1:
+            row = output[1]
+            table_id = row[0]
+            logging.info('Created table id %s for %s' % 
+                         (table_id, table_name))
     else:
         logging.info('Found table id %s for %s' % (table_id, table_name))
     return table_id
@@ -36,7 +36,7 @@ def create_table_sql(table_name, table_schema):
     sql = sql + ')'
     return sql
 
-def insert_row_sql(table_id, row):
+def create_insert_row_sql(table_id, row):
     columns_values = row.items()
     for index in range(len(columns_values)):
         if columns_values[index][1] == None:
@@ -50,18 +50,17 @@ def insert_row_sql(table_id, row):
 
 def get_row_id(table_id, auth_token,
                primary_key_column, primary_key_value):
-    table_output = send_query("SELECT ROWID FROM %s WHERE %s='%s'" % 
-                              (table_id, primary_key_column, 
-                               primary_key_value),
-                              auth_token)
+    output = send_query("SELECT ROWID FROM %s WHERE %s='%s'" % 
+                        (table_id, primary_key_column, 
+                         primary_key_value),
+                        auth_token)
     row_id = None
-    for row in table_output:
-        if table_output.line_num == 2:
-            if len(row) > 0:
-                row_id = row[0]
-                logging.info('Found row id %s for %s in table %s' %
-                             (row_id, primary_key_value, table_id))
-                break
+    if len(output) >= 2:
+        row = output[1]
+        if len(row) > 0:
+            row_id = row[0]
+            logging.info('Found row id %s for %s in table %s' %
+                         (row_id, primary_key_value, table_id))
     return row_id
         
 
@@ -74,13 +73,13 @@ def insert_row(table_id, auth_token, row, primary_key_column):
         if row_id:
             pass
         else:
-            sql = generate_insert_row_sql(table_id, row)
+            sql = create_insert_row_sql(table_id, row)
             output = send_query(sql, auth_token)
-            for row in output:
-                if output.line_num == 2:
-                    row_id = row[0]
-                    logging.info('Inserted row id %s in %s' % 
-                                 (row_id, table_name))
+            if len(output) > 1:
+                row = output[1]
+                row_id = row[0]
+                logging.info('Inserted row id %s in table %s' % 
+                             (row_id, table_id))
                     
     else:
         logging.error('Something is wrong')
@@ -125,4 +124,7 @@ def send_query(sql, authtoken):
     resp_body = resp.read()
     resp.close()
     csv_data = csv.reader(resp_body.split('\n'))
-    return csv_data
+    rows = []
+    for row in csv_data:
+        rows.append(row)
+    return rows

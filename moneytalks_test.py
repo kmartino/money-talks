@@ -53,6 +53,22 @@ class MoneyTalksTest(unittest.TestCase):
         table_id = fusion.get_table_id(fake_table_name, fake_auth_token)
         self.assertEquals(expected_table_id, table_id)
 
+    def test_get_row_id(self):
+        # fusion.send_query = Mock('fusion.send_query')
+        # fusion.send_query.mock_returns = ['ROWID', '2456']
+
+        # expected_row_id = '2456'
+
+        # fake_table_id = '245'
+        # fake_auth_token = '123'
+        # fake_primary_key_column = 'ID'
+        # fake_primary_key_value = '546'
+        # row_id = fusion.get_row_id(fake_table_id, fake_auth_token,
+        #                            fake_primary_key_column,
+        #                            fake_primary_key_value)
+        # self.assertEquals(expected_row_id, row_id)
+        pass
+
         
 if '__main__' == __name__:
     unittest.main()
