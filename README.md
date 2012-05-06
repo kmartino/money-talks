@@ -1,25 +1,21 @@
 money-talks
 ===========
 
-Summary: TODO
-
-Installation and Setup
-----------------------
-
 Money Talks focuses on local campaign finance data from Philadelphia.
-Initiated by journalists Tom Ferrick and Chris Brennan, partnered with
-Karl Martino, Inquirer data visualization specialist Rob Kandell and
-Kristen Mosbrucker, and Jared Brey, during 2012's Barcamp
-NewsInnovation hackathon event.
+It was initiated by journalists Tom Ferrick and Chris Brennan,
+partnered with Karl Martino, Inquirer data visualization specialist
+Rob Kandell and Kristen Mosbrucker, and Jared Brey, during 2012's
+Barcamp NewsInnovation hackathon event.
 
 The script, as it is currently in Github, downloads header-less CSVs
-from ftp://ftp.phila-records.com/, re-structures them, and then uploads
-that content to Google Fusion for visualization and searching. The
-script is reusable against other header-less CSV's sources over FTP,
-and could be quickly repurposed to parse data from other Web-based
-locations.
+from ftp://ftp.phila-records.com/, re-structures them, and then
+uploads that content to Google Fusion for visualization and searching.
+The script is reusable against other header-less CSV's sources over
+FTP, and could be quickly repurposed to parse data from other
+Web-based locations. The script is written in such a way that it can
+be ran repeatidly without unwanted side-effects.
 
-To be added to this project shortly:
+Coming soon:
 
 1. The front end Web-based interface to the data at Google Fusion.
 
@@ -28,9 +24,16 @@ sources of data.
 
 3. Improved script interface and error handling.
 
+4. A write-up explaining the mechanics of the script, why it is
+organized the way it is, to help others who would like to write
+similar automated routines.
+
+Installation and Setup
+----------------------
+
 ### Install System Pre-requisites
 
-This project requires Python 2.6 or higher. In addition, the
+Money Talks requires Python 2.6 or higher. In addition, the
 following pre-requisites need to be installed. If you already have
 them, skip this:
 
