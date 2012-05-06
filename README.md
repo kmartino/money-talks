@@ -6,6 +6,28 @@ Summary: TODO
 Installation and Setup
 ----------------------
 
+Money Talks focuses on local campaign finance data from Philadelphia.
+Initiated by journalists Tom Ferrick and Chris Brennan, partnered with
+Karl Martino, Inquirer data visualization specialist Rob Kandell and
+Kristen Mosbrucker, and Jared Brey, during 2012's Barcamp
+NewsInnovation hackathon event.
+
+The script, as it is currently in Github, downloads header-less CSVs
+from ftp://ftp.phila-records.com/, re-structures them, and then uploads
+that content to Google Fusion for visualization and searching. The
+script is reusable against other header-less CSV's sources over FTP,
+and could be quickly repurposed to parse data from other Web-based
+locations.
+
+To be added to this project shortly:
+
+1. The front end Web-based interface to the data at Google Fusion.
+
+2. Fleshing out a strong set unit tests that can mock the remote
+sources of data.
+
+3. Improved script interface and error handling.
+
 ### Install System Pre-requisites
 
 This project requires Python 2.6 or higher. In addition, the
@@ -67,27 +89,44 @@ Activate the project's virtualenv if you haven't already:
 
     source .env/bin/activate
 
-To download csv files from the source system (overwrites files locally):
+To download csv files from the source system (overwrites files
+locally):
 
     python moneytalks.py e DEBUG
    
-To extract information from them and create the local db file (overwrites the db file locally):
+To extract information from them and create the local db file
+(overwrites the db file locally):
 
     python moneytalks.py t DEBUG
 
-To load the db file to your Google Fusion tables (this will prompt for the credentials you associate with your Google Fusion account): 
+To load the db file to your Google Fusion tables (this will prompt for
+the credentials you associate with your Google Fusion account):
 
     python moneytalks l DEBUG
 
-The above will create the target tables indicated in moneytalks_config.py, with the columns indicated. If those tables exist, and rows with matching IDs exist, the script will update those rows. So running this repeatitively will not result in ever more rows being appended to your target tables.
+The above will create the target tables indicated in
+moneytalks_config.py, with the columns indicated. If those tables
+exist, and rows with matching IDs exist, the script will update those
+rows. So running this repeatitively will not result in ever more rows
+being appended to your target tables.
 
-Sources 
+Links
 -------
 
 - Philadelphia Election Data Source
   ftp://ftp.phila-records.com/
 - OpenDataPhilly
   http://opendataphilly.org/
+- Metropolis
+  http://www.phlmetropolis.com/
+- Philly Clout
+  http://www.philly.com/philly/blogs/cityhall/
+- Philadelphia Inquirer and Daily News
+  http://www.philly.com/
+- WHYY
+  http://www.whyy.org/
+- Center for Public Interest Journalism
+  http://www.cpijournalism.org/
 - Google: Google Fusion Tables API
   https://developers.google.com/fusiontables/
 - Google: ClientLogin for Installed Applications
