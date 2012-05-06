@@ -39,10 +39,8 @@ def create_table_sql(table_name, table_schema):
 def insert_row_sql(table_id, row):
     columns_values = row.items()
     for index in range(len(columns_values)):
-        print columns_values[index]
         if columns_values[index][1] == None:
             columns_values[index] = (columns_values[index][0], '')
-    print columns_values
     sql = 'INSERT INTO %s ' % table_id
     sql = sql + '(' + ', '.join("%s" % x for x, y in columns_values) 
     sql = sql + ') VALUES '
