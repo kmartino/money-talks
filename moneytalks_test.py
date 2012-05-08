@@ -36,7 +36,7 @@ class MoneyTalksTest(unittest.TestCase):
 
         fake_table_id = '123456'
         fake_row = {'ID':'123', 'YEAR':'2011', 'CYCLE':'1'}
-        sql = fusion.insert_row_sql(fake_table_id, fake_row)
+        sql = fusion.create_insert_row_sql(fake_table_id, fake_row)
         expected_sql = '''INSERT INTO 123456 (CYCLE, ID, YEAR) VALUES ('1', '123', '2011')'''
         self.assertEquals(expected_sql, sql)
 

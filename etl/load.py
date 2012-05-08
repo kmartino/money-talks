@@ -45,7 +45,7 @@ def load(**kwargs):
         if table_name in fusion_tables:
             table_id = fusion_tables[table_name]
             for row in records:
-                fusion.insert_row(table_id, auth_token, row, 'ID')
+                row_id = fusion.insert_row(table_id, auth_token, row, 'ID')
         else:
             logging.warning('Rows for %s but not table definition in data')
 

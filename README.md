@@ -141,5 +141,13 @@ Links
   http://www.doughellmann.com/PyMOTW/csv/
 - ftputil documentation
   http://ftputil.sschwarzer.net/trac/wiki/Documentation#ftphost-walk
+- MiniMock
+  http://pypi.python.org/pypi/MiniMock
+- StackOverflow: Python, unit-testing and mocking imports
+  http://stackoverflow.com/questions/178458/python-unit-testing-and-mocking-imports
 - johnkeefe.net: Making AP Election Data Easy
   http://johnkeefe.net/making-ap-election-data-easy-with-fusion-tabl
+- git
+  http://git-scm.com/
+- Pythom FAQ: Webdeb
+  http://me.veekun.com/blog/2012/05/05/python-faq-webdev/

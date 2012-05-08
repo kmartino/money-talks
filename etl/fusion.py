@@ -1,23 +1,24 @@
 import logging 
 import urllib
 import urllib2
-import subprocess
 import csv
 import json
 
+
 def create_table(table_name, table_schema, auth_token):
+    logging.info('create_table: %s' % table_name)
     table_id = get_table_id(table_name, auth_token)
     if not table_id:
-        logging.info('Creating %s' % table_name)
+        logging.debug('Creating %s' % table_name)
         sql = create_table_sql(table_name, table_schema)
         output = send_query(sql, auth_token)
         if len(output) > 1:
             row = output[1]
             table_id = row[0]
-            logging.info('Created table id %s for %s' % 
+            logging.debug('Created table id %s for %s' % 
                          (table_id, table_name))
     else:
-        logging.info('Found table id %s for %s' % (table_id, table_name))
+        logging.debug('Found table id %s for %s' % (table_id, table_name))
     return table_id
 
 def get_table_id(table_name, auth_token):
@@ -44,7 +45,8 @@ def create_insert_row_sql(table_id, row):
     sql = 'INSERT INTO %s ' % table_id
     sql = sql + '(' + ', '.join("%s" % x for x, y in columns_values) 
     sql = sql + ') VALUES '
-    sql = sql + '(' + ', '.join("'%s'" % y.replace("'", "\\'") for x, y in columns_values) 
+    sql = sql + '(' + ', '.join("'%s'" % y.replace("'", "\\'") 
+                                for x, y in columns_values) 
     sql = sql + ')'
     return sql
 
@@ -59,8 +61,8 @@ def get_row_id(table_id, auth_token,
         row = output[1]
         if len(row) > 0:
             row_id = row[0]
-            logging.info('Found row id %s for %s in table %s' %
-                         (row_id, primary_key_value, table_id))
+            logging.debug('Found row id %s for %s in table %s' %
+                          (row_id, primary_key_value, table_id))
     return row_id
         
 
@@ -78,7 +80,7 @@ def insert_row(table_id, auth_token, row, primary_key_column):
             if len(output) > 1:
                 row = output[1]
                 row_id = row[0]
-                logging.info('Inserted row id %s in table %s' % 
+                logging.debug('Inserted row id %s in table %s' % 
                              (row_id, table_id))
                     
     else:
@@ -109,6 +111,7 @@ def get_auth(username, password):
 def send_query(sql, authtoken):
     """ Sends query to Fusion Tables with a ClientLogin
     authorization token.
+
     """
     req_data = urllib.urlencode({
             'sql': sql
