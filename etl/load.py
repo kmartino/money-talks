@@ -6,7 +6,7 @@ Loads a db file and uploads its contents to Google Fusion Tables.
 import logging
 import os
 import json
-
+import time
 import fusion 
 
 def load(**kwargs):
@@ -37,17 +37,19 @@ def load(**kwargs):
                                        table_schema,
                                        auth_token)
         fusion_tables[table_name] = table_id
+        fusion.delete_all_rows(table_id, auth_token)
         
     # generate sql and execute for each row, in each file,
     # stored in the records argument.
+    count = 1
     for file_path, records in data.items():
         table_name = os.path.basename(file_path)
-        if table_name in fusion_tables:
-            table_id = fusion_tables[table_name]
-            for row in records:
-                row_id = fusion.insert_row(table_id, auth_token, row, 'ID')
-        else:
-            logging.warning('Rows for %s but not table definition in data')
+        logging.info('Inserting %s rows for %s' % (len(records), file_path))
+        logging.info('Processing %s of %s files' % (count, len(data.items())))
+        table_id = fusion_tables[table_name]
+        output = fusion.insert_rows(table_id, auth_token, records, file_path)
+
+        count = count + 1
 
 def load_db(file_path):
     json_data=open(file_path)

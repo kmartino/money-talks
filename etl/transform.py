@@ -52,7 +52,6 @@ def transform(**kwargs):
                     for row in reader:
                         if file_path not in data:
                             data[file_path] = []
-                        row['SOURCE_PATH'] = file_path
                         data[file_path].append(row)
 
                 finally:

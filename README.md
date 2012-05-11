@@ -136,7 +136,9 @@ Links
 - Google: Election Ratings and Spatial Data with Fusion Tables
   https://developers.google.com/maps/articles/election-ratings
 - Fuzzy Tolerance: Updating Google Fusion Tables from a CSV File Using Python
-  http://fuzzytolerance.info/updating-google-fusion-table-from-a-csv-file-using-python/ 
+  http://fuzzytolerance.info/updating-google-fusion-table-from-a-csv-file-using-python
+- Chris L Keller: Using Python to Send Open States API Data to Fusion
+  http://www.chrislkeller.com/using-python-to-send-open-states-api-data-to
 - Python Module of the Week: csv
   http://www.doughellmann.com/PyMOTW/csv/
 - ftputil documentation
@@ -151,3 +153,17 @@ Links
   http://git-scm.com/
 - Pythom FAQ: Webdeb
   http://me.veekun.com/blog/2012/05/05/python-faq-webdev/
+- Learn Python the Hard Way
+  https://github.com/chrislkeller/sunlight-ft-map.git
+- Python Module of the Week: codecs
+  http://www.doughellmann.com/PyMOTW/codecs/
+- Stack Overflow: Dealing with utf-like content
+  http://stackoverflow.com/questions/5842115/converting-a-string-which-contains-both-utf-8-encoded-bytestrings-and-codepoints
+- Google: Python Sample Code with OAuth and Standard Library
+  https://google-developers.appspot.com/fusiontables/docs/samples/python
+- Python Wiki: Handling Exceptions
+  http://wiki.python.org/moin/HandlingExceptions
+- Beautiful Soup 
+  http://www.crummy.com/software/BeautifulSoup/bs3/documentation.html#Beautiful%20Soup%20Gives%20You%20Unicode,%20Dammit
+- fusion-tables-client-python: sqlbuilder
+  https://code.google.com/p/fusion-tables-client-python/source/browse/trunk/src/sql/sqlbuilder.py?r=22

@@ -31,6 +31,8 @@ if __name__ == "__main__":
             log_level = sys.argv[2]
             if log_level == 'DEBUG':
                 logging.basicConfig(level=logging.DEBUG)
+            else:
+                logging.basicConfig(level=logging.INFO)
         else:
             logging.basicConfig(level=logging.INFO)
     else:
