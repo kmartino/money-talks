@@ -8,6 +8,15 @@ import sys
 
 from BeautifulSoup import BeautifulSoup, BeautifulStoneSoup
 
+def get_table_id_from_result(table_name, results):
+    table_id = None
+    csv_data = csv.reader(results.split('\n'))
+    for row in csv_data:
+        if len(row) > 0:
+            if row[1] == table_name:
+                table_id = row[0]
+    return table_id
+
 def create_table(table_name, table_schema, auth_token):
     logging.info('create_table: %s' % table_name)
     table_id = get_table_id(table_name, auth_token)

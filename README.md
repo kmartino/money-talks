@@ -167,3 +167,5 @@ Links
   http://www.crummy.com/software/BeautifulSoup/bs3/documentation.html#Beautiful%20Soup%20Gives%20You%20Unicode,%20Dammit
 - fusion-tables-client-python: sqlbuilder
   https://code.google.com/p/fusion-tables-client-python/source/browse/trunk/src/sql/sqlbuilder.py?r=22
+- smn/python-fusiontables
+  https://github.com/smn/python-fusiontables

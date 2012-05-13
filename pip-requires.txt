@@ -1,3 +1,5 @@
+python-fusiontables
 ftputil
 mock
 minimock
+unidecode
