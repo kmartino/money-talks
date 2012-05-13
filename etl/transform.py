@@ -46,12 +46,14 @@ def transform(**kwargs):
                     reader = None
                     if table_name in csv_schema:
                         reader = csv.DictReader(file_obj, 
-                                                fieldnames=csv_schema[table_name])
+                                                fieldnames=csv_schema[table_name].keys())
                     else:
                         logging.warning('Skipping %s - no table definition in csv_schema.')
+
                     for row in reader:
                         if file_path not in data:
                             data[file_path] = []
+                        row['FILE_PATH'] = file_path
                         data[file_path].append(row)
 
                 finally:
