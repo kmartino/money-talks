@@ -42,8 +42,9 @@ def load(**kwargs):
     # create tables at Google Fusion if they do not exist
     # for each table in our schema argument
     fusion_tables = {}
-    for table_name, table_schema in csv_schema.items():
-        table_id = get_table_id_from_result(table_name, show_table_output)
+    for table_name, schema in csv_schema.items():
+        table_id = get_table_id(table_name, show_table_output)
+        table_schema = {k : v for k , v in schema}
         if not table_id:            
             table = {table_name:table_schema}
             table_id = int(ft_client.query(SQL().createTable(table)).split("\n")[1])
@@ -123,7 +124,7 @@ def _decode_dict(data):
         
     return rv
 
-def get_table_id_from_result(table_name, results):
+def get_table_id(table_name, results):
     table_id = None
     csv_data = csv.reader(results.split('\n'))
     for row in csv_data:

@@ -3,3 +3,5 @@ ftputil
 mock
 minimock
 unidecode
+nose
+

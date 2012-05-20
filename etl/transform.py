@@ -15,6 +15,7 @@ import os
 import csv
 import json
 
+import pdb
 
 def transform(**kwargs):
     """Transforms text files in the extract_storage directory and
@@ -45,8 +46,10 @@ def transform(**kwargs):
                     table_name = os.path.basename(file_path)
                     reader = None
                     if table_name in csv_schema:
+                        table_columns = [col for col, coltype in csv_schema[table_name]]
                         reader = csv.DictReader(file_obj, 
-                                                fieldnames=csv_schema[table_name].keys())
+                                                fieldnames=table_columns)
+
                     else:
                         logging.warning('Skipping %s - no table definition in csv_schema.')
 
