@@ -16,7 +16,7 @@ CSV_SCHEMA = {
                     ('TBA11','STRING'), ('PURPOSE','STRING'),
                     ('FILE_PATH','STRING')],
 
-    'debt.txt': [('ID','STRING'), ('YEAR,','STRING'), 
+    'debt.txt': [('ID','STRING'), ('YEAR','STRING'), 
                  ('CYCLE','STRING'), ('DEBT_HOLDER_NAME','STRING'), 
                  ('ADDRESS','STRING'), ('ADDRESS2','STRING'), 
                  ('CITY','STRING'), ('STATE','STRING'),

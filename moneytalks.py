@@ -36,7 +36,9 @@ if __name__ == "__main__":
         else:
             logging.basicConfig(level=logging.INFO)
     else:
-        print_config(config)
+        print 'Indicate what commands you want to execute (e Extract, t Tranform, l Load), in addition to logging level.'
+        print 'Example to do all three: python moneytalks.py etl DEBUG'
+        print 'Example to excute Extract: python moneytalks.py e DEBUG'
         sys.exit()
 
     # Lets get to work...

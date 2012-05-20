@@ -9,6 +9,7 @@ import json
 import time
 import csv
 import sys
+from collections import OrderedDict
 
 from fusiontables.authorization.clientlogin import ClientLogin
 from fusiontables import ftclient
@@ -44,7 +45,8 @@ def load(**kwargs):
     fusion_tables = {}
     for table_name, schema in csv_schema.items():
         table_id = get_table_id(table_name, show_table_output)
-        table_schema = {k : v for k , v in schema}
+        table_columns = [col for col, coltype in csv_schema[table_name]]
+        table_schema = OrderedDict(schema)
         if not table_id:            
             table = {table_name:table_schema}
             table_id = int(ft_client.query(SQL().createTable(table)).split("\n")[1])

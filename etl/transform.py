@@ -15,8 +15,6 @@ import os
 import csv
 import json
 
-import pdb
-
 def transform(**kwargs):
     """Transforms text files in the extract_storage directory and
     transforms them into a dictonary of dictionaries. A format that is
