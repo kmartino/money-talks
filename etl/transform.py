@@ -1,7 +1,7 @@
 """ transform.py
 
-Iterates over a directory of csv files and 
-transforms them into a dictionary that is 
+Iterates over a directory of csv files and
+transforms them into a dictionary that is
 suitable for creating SQL statements from.
 
 The dictionary is stored in its own location
@@ -20,9 +20,9 @@ def transform(**kwargs):
     transforms them into a dictonary of dictionaries. A format that is
     easy to map to SQL statemtents that can upload content to Google's
     Fusion Tables.
-    
-    Keyword Arguments: 
-    extract_storage -- the local directory the csv text files are in 
+
+    Keyword Arguments:
+    extract_storage -- the local directory the csv text files are in
     db -- the local file to save the generated dictionary to
 
     """
@@ -45,7 +45,7 @@ def transform(**kwargs):
                     reader = None
                     if table_name in csv_schema:
                         table_columns = [col for col, coltype in csv_schema[table_name]]
-                        reader = csv.DictReader(file_obj, 
+                        reader = csv.DictReader(file_obj,
                                                 fieldnames=table_columns)
 
                     else:
@@ -54,6 +54,7 @@ def transform(**kwargs):
                     for row in reader:
                         if file_path not in data:
                             data[file_path] = []
+                        row['SUBJECT'] = file_path.split(os.path.sep)[-3]
                         row['FILE_PATH'] = file_path
                         data[file_path].append(row)
 
@@ -74,4 +75,3 @@ def save_db(data, db):
     f = open(db, 'w')
     f.write(output + '\n')
     f.close()
-
